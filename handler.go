@@ -7,9 +7,9 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/graphql-go/graphql"
+	graphql "github.com/mydesignbuddy/graphql-app-engine"
 
-	"context"
+	"golang.org/x/net/context"
 )
 
 const (
@@ -147,7 +147,7 @@ func (h *Handler) ContextHandler(ctx context.Context, w http.ResponseWriter, r *
 
 // ServeHTTP provides an entrypoint into executing graphQL queries.
 func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	h.ContextHandler(r.Context(), w, r)
+	h.ContextHandler(context.Background(), w, r)
 }
 
 type Config struct {
